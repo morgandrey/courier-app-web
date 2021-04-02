@@ -1,0 +1,59 @@
+﻿@model BoxOwlWeb.ViewModels.ClientViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Регистрация пользователя";
+}
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Регистрация</h1>
+    </div>
+    <form asp-action="Register" asp-controller="Account" class="row text-center mt-5">
+        <div class="form-group col">
+            <label asp-for="ClientEmail" class="control-label">E-mail</label>
+            <input type="email" asp-for="ClientEmail" required="" class="form-control" />
+            <span asp-validation-for="ClientEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group col">
+            <label asp-for="ClientName" class="control-label">Имя</label>
+            <input type="text" asp-for="ClientName" required="" class="form-control" />
+            <span asp-validation-for="ClientName" class="text-danger"></span>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="form-group col">
+            <label asp-for="ClientPassword" class="control-label">Пароль</label>
+            <input type="password" asp-for="ClientPassword" required="" class="form-control" />
+            <span asp-validation-for="ClientPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group col">
+            <label asp-for="ClientSurname">Фамилия</label>
+            <input type="text" asp-for="ClientSurname" required="" class="form-control" />
+            <span asp-validation-for="ClientSurname" class="text-danger"></span>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="form-group col">
+            <label asp-for="ClientConfirmPassword" class="control-label">Подтверждение пароля</label>
+            <input type="password" asp-for="ClientConfirmPassword" required="" class="form-control" />
+            <span asp-validation-for="ClientConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group col">
+            <label asp-for="ClientPhone" class="control-label">Телефон</label>
+            <input type="tel" asp-for="ClientPhone" required="" maxlength="16" class="form-control" />
+            <span asp-validation-for="ClientPhone" class="text-danger"></span>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+            <button class="btn btn-outline-primary mt-4">Зарегистрироваться</button>
+        </div>
+    </form>
+</body>
+
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

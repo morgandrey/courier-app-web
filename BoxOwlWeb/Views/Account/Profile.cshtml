@@ -1,0 +1,49 @@
+﻿@model BoxOwlWeb.ViewModels.ClientViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Профиль";
+}
+
+<h1 class="text-center">Профиль</h1>
+
+<div class="row text-center font-weight-bold pt-4">
+    <div class="col pt-4">
+        @Html.DisplayNameFor(model => model.ClientName)
+    </div>
+    <div class="col pt-4">
+        @Html.DisplayFor(model => model.ClientName)
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col pt-4">
+        @Html.DisplayNameFor(model => model.ClientSurname)
+    </div>
+    <div class="col pt-4">
+        @Html.DisplayFor(model => model.ClientSurname)
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col pt-4">
+        @Html.DisplayNameFor(model => model.ClientEmail)
+    </div>
+    <div class="col pt-4">
+        @Html.DisplayFor(model => model.ClientEmail)
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col pt-4">
+        @Html.DisplayNameFor(model => model.ClientPhone)
+    </div>
+    <div class="col pt-4">
+        @Html.DisplayFor(model => model.ClientPhone)
+    </div>
+
+    <div class="w-100"></div>
+
+</div>
+<div class="text-center mt-5">
+    <a class="btn btn-primary font-weight-bold" asp-action="Logout" asp-controller="Account">Выйти</a>
+</div>

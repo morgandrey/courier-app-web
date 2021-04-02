@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Продукты";
+}
+
+<h1 class="text-center">Продукты</h1>
+
+@if (Model != null && Model.Any()) {
+    <div class="table-responsive mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductDescription)</th>
+                    <th>@Html.DisplayNameFor(model => model.ProductCost)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null) {
+
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>@item.ProductDescription</td>
+                            <td>@item.ProductCost</td>
+                            <td>
+                                @{
+                                    int index = ((List<Product>)ViewBag.ProductList).FindIndex(x => x.ProductName == item.ProductName);
+                                    if (index >= 0) {
+                                        <span class="text-danger">Уже в корзине</span>
+                                    } else {
+                                        <a asp-action="AddProductToCart" asp-route-productId="@item.ProductId">Добавить в корзину</a>
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

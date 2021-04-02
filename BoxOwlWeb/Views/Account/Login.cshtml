@@ -1,0 +1,23 @@
+﻿@model BoxOwlWeb.ViewModels.LoginViewModel
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Авторизация";
+}
+<body>
+    <form asp-action="Login" asp-controller="Account" method="post">
+        <div class="text-center">
+            <h1 class="display-4">Авторизация</h1>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="text" placeholder="E-mail" asp-for="ClientEmail" required="" class="form-control" />
+            <span asp-validation-for="ClientEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <input type="password" placeholder="Пароль" asp-for="ClientPassword" required="" class="form-control" />
+            <span asp-validation-for="ClientPassword" class="text-danger"></span>
+        </div>
+        <div class="col-3 mx-sm-1 mb-2">
+            <button class="btn btn-outline-primary">Войти</button>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Корзина";
+}
+
+@if (Model != null && Model.Any()) {
+
+    <h1 class="text-center">Корзина</h1>
+
+    <form asp-controller="Cart" asp-action="DeleteCart" class="form-inline">
+        <button type="submit" class="btn btn-primary mb-2">Стереть корзину</button>
+    </form>
+
+    <div class="table-responsive mt-5">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductDescription)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductCost)</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model != null) {
+
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductDescription</td>
+                        <td>@item.ProductCost</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <form asp-controller="Cart" asp-action="ConfirmOrder" method="get" class="form-inline">
+        <button type="submit" class="btn btn-primary mb-2">Перейти к подтверждение заказа</button>
+    </form>
+
+} else {
+    <h1 class="text-center">Корзина пуста</h1>
+}
